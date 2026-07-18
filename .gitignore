@@ -1,0 +1,9 @@
+*.class
+target/
+.idea/
+.vscode/
+*.log
+venv/
+__pycache__/
+*.pyc
+.env
