@@ -21,7 +21,7 @@ app = Flask(__name__)
 @app.route('/first')
 def first():
     return render_template('first.html')
-@app.route('/login')
+@app.route('/login')   
 def login():
     return render_template('login.html')
 def home():
@@ -34,6 +34,7 @@ def preview():
     if request.method == 'POST':
         dataset = request.files['datasetfile']
         df = pd.read_csv(dataset,encoding = 'unicode_escape')
+        print(df.columns)
         df.set_index('Id', inplace=True)
         return render_template("preview.html",df_view = df) 
 
@@ -71,6 +72,7 @@ def detect():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Render assigns a port dynamically
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
